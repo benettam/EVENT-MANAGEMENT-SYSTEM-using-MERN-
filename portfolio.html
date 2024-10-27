@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Event Management Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for portfolio page */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .highlighted-works, .portfolio-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .highlighted-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .highlighted-item {
+            width: 250px;
+            margin: 20px;
+        }
+        .highlighted-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .highlighted-item h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .portfolio-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .gallery-item {
+            width: 200px;
+            margin: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .gallery-item p {
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <h1 class="fade-in">Event Management Services</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" id="services-toggle">Services</a>
+                        <ul class="dropdown" id="dropdown-menu">
+                            <li><a href="birthday.html">Birthday</a></li>
+                            <li><a href="wedding.html">Wedding</a></li>
+                            <li><a href="baby-shower.html">Baby Shower</a></li>
+                            <li><a href="bachelorette-party.html">Bachelorette Party</a></li>
+                            <li><a href="corporate.html">Corporate Events</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="booking.html">Booking</a></li> <!-- Added Booking link -->
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Welcome to Event Management Services! We are a full-service event planning company that excels at organizing and managing weddings, corporate events, birthdays, and more. We bring a personal touch to every event, working closely with clients to execute their vision flawlessly.</p>
+            <p>Our goal is to create unforgettable experiences that reflect the unique style and personality of our clients, with meticulous attention to detail and seamless event execution. From intimate gatherings to large-scale corporate functions, we have the expertise to ensure success.</p>
+        </div>
+    </section>
+
+    <!-- Highlighted Works Section -->
+    <section class="highlighted-works">
+        <div class="container">
+            <h2>Highlighted Works</h2>
+            <div class="highlighted-gallery">
+                <!-- Work 1: Luxury Wedding -->
+                <div class="highlighted-item">
+                    <img src="IMAGES/wedding2.jpg" alt="Luxury Wedding">
+                    <h3>Luxury Wedding</h3>
+                    <p>We organized a high-end wedding at an exquisite lakeside venue, featuring luxury decor, floral installations, and an extensive guest list of over 500 VIPs. The wedding was a breathtaking celebration that reflected the couple’s elegance and style.</p>
+                </div>
+                <!-- Work 2: Global Tech Conference -->
+                <div class="highlighted-item">
+                    <img src="IMAGES/CE3.jpg" alt="Corporate Conference">
+                    <h3>Global Tech Conference</h3>
+                    <p>For a renowned global tech company, we managed a 3-day conference that included keynote speeches, cutting-edge technology demos, and impeccable event logistics. The conference was a huge success, attended by over 1,000 industry professionals.</p>
+                </div>
+                <!-- Work 3: Charity Gala -->
+                <div class="highlighted-item">
+                    <img src="IMAGES/birthday4.jpg" alt="Charity Gala">
+                    <h3>Charity Gala</h3>
+                    <p>We orchestrated a prestigious charity gala for a high-profile client, raising over $1 million for charitable causes. The evening was filled with glamour, fine dining, and entertainment, leaving a lasting impression on attendees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
+        <div class="container">
+            <h2>Our Portfolio</h2>
+            <p>Explore a selection of some of the most notable events we’ve managed:</p>
+            
+            <!-- Gallery Section -->
+            <div class="portfolio-gallery">
+                <div class="gallery-item">
+                    <img src="IMAGES/wedding3.jpg" alt="Wedding Event">
+                    <p>Elegant Wedding Ceremony</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMAGES/CE1.jpg" alt="Corporate Event">
+                    <p>Professional Corporate Event</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMAGES/birthday6.jpg" alt="Birthday Party">
+                    <p>Fun and Creative Birthday Party</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMAGES/BS1.jpg" alt="Baby Shower">
+                    <p>Beautiful Baby Shower Event</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Event Management Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - Event Management Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for booking page */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .form-container { background-color: #ffffff; width: 90%; max-width: 500px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; margin: 40px auto; }
+        h2 { text-align: center; color: #333; font-size: 24px; margin-bottom: 20px; }
+        label { display: block; font-size: 14px; color: #666; margin-bottom: 5px; }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="date"], input[type="number"], select { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+        .popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #fff; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); border-radius: 8px; z-index: 1000; }
+        .popup p { font-size: 16px; color: #333; }
+        .popup button { background-color: #4CAF50; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+    <script>
+        async function submitBooking(event) {
+            event.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                mobile: document.getElementById('mobile').value,
+                address: document.getElementById('address').value,
+                event: document.getElementById('event').value,
+                other_event: document.getElementById('other_event').value,
+                date: document.getElementById('date').value,
+                guests: document.getElementById('guests').value,
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/book', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                });
+
+                if (response.ok) {
+                    document.getElementById('popup').style.display = 'block';
+                } else {
+                    throw new Error('Failed to book the event');
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <h1>Event Management Services</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="dropdown-toggle" id="services-toggle">Services</a>
+                        <ul class="dropdown" id="dropdown-menu">
+                            <li><a href="birthday.html">Birthday</a></li>
+                            <li><a href="wedding.html">Wedding</a></li>
+                            <li><a href="baby-shower.html">Baby Shower</a></li>
+                            <li><a href="bachelorette-party.html">Bachelorette Party</a></li>
+                            <li><a href="corporate.html">Corporate Events</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="booking.html" class="active">Booking</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Booking Form Section -->
+    <section class="form-container">
+        <h2>Booking Form</h2>
+        <form onsubmit="submitBooking(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="mobile">Mobile:</label>
+            <input type="tel" id="mobile" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" required>
+            <label for="event">Select Event:</label>
+            <select id="event" required>
+                <option value="" disabled selected>Select your event</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Baby Shower">Baby Shower</option>
+                <option value="Bachelorette Party">Bachelorette Party</option>
+                <option value="Other">Any other event</option>
+            </select>
+            <label for="other_event">If Other, specify:</label>
+            <input type="text" id="other_event" placeholder="Event type if not listed">
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" required min="1">
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+
+    <!-- Success Popup -->
+    <div id="popup" class="popup">
+        <p>Event booked, will contact within 24 hours.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Event Management Services - All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
